@@ -6,10 +6,15 @@
     "configurations": [
         {
             "type": "chrome",
-            "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "request": "attach",
+            "name": "Chromium Launch",
+            "url": "http://127.0.0.1:4200/",            
+            "port":9222,
+            "sourceMaps": true,
+            "webRoot": "${workspaceFolder}",
+            "sourceMapPathOverrides": {
+                "webpack:///./*":"${workspaceRoot}\\*",
+            }
         }
     ]
 }
