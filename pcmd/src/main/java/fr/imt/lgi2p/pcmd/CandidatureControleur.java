@@ -15,10 +15,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
 @RestController
 public class CandidatureControleur {
-	
+
 	@Autowired
 	private CandidatureDao candidatureDao;
 
@@ -34,18 +33,18 @@ public class CandidatureControleur {
 		candidatureDao.newCandidature(candidature);
 		return candidature;
 	}
-	
-	@PostMapping(value = "/updateCandidature" )
-	public Candidature updateCandidature(@RequestBody String candidature) { 
+
+	@PostMapping(value = "/updateCandidature")
+	public Candidature updateCandidature(@RequestBody String candidature) {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			Candidature newCandidature = mapper.readValue(candidature, Candidature.class);
-			candidatureDao.updateCandidature( newCandidature );
-	        return ( newCandidature );
-	    } catch (JsonProcessingException e) {
-	       e.printStackTrace();
-	    }
-	    return (null);
+			candidatureDao.updateCandidature(newCandidature);
+			return (newCandidature);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		return (null);
 	}
 
 }

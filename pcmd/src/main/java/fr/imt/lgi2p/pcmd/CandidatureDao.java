@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public class CandidatureDao {
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -40,5 +40,5 @@ public class CandidatureDao {
 		Candidature candidature = session.get(Candidature.class, login);
 		return candidature;
 	}
-	
+
 }

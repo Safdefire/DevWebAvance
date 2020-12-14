@@ -1,4 +1,5 @@
 package fr.imt.lgi2p.pcmd;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +14,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
-
-
 @RestController
 public class AdminControleur {
 	@Autowired
 	private AdminDao adminDao;
-	
-	@RequestMapping(value="/admins", method=RequestMethod.GET)
-	   public List<Admin> listeAdmins() {
+
+	@RequestMapping(value = "/admins", method = RequestMethod.GET)
+	public List<Admin> listeAdmins() {
 		return adminDao.listAdmin();
 	}
 }

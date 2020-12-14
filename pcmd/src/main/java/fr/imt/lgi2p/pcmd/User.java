@@ -1,4 +1,5 @@
 package fr.imt.lgi2p.pcmd;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,21 +8,24 @@ import javax.persistence.Id;
 @Entity
 public class User {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String login;
 	private String password;
 	private String statut;
+
 	public User() {
 		super();
 	}
+
 	public User(String login, String password, String statut) {
 		super();
 		this.login = login;
 		this.password = password;
 		this.statut = statut;
 	}
+
 	public User(Long id, String login, String password, String statut) {
 		super();
 		this.id = id;
@@ -29,30 +33,39 @@ public class User {
 		this.password = password;
 		this.statut = statut;
 	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getLogin() {
 		return login;
 	}
+
 	public void setLogin(String login) {
 		this.login = login;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getStatut() {
 		return statut;
 	}
+
 	public void setStatut(String statut) {
 		this.statut = statut;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -63,6 +76,7 @@ public class User {
 		result = prime * result + ((statut == null) ? 0 : statut.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -94,11 +108,10 @@ public class User {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", login=" + login + ", password=" + password + ", statut=" + statut + "]";
 	}
-	
-	
-	  
+
 }
