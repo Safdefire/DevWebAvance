@@ -1,1 +1,19 @@
 2020-12-14 15:45:51,604 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-12-14 15:47:35,131 [Worker-6: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: fr.imt.lgi2p.pcmd:pcmd:0.0.1-SNAPSHOT @ C:\devAvance\GitHub\DevWebAvance\pcmdSpring\pom.xml.
+2020-12-14 15:47:37,065 [Worker-6: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcmdSpring/src/main/java
+2020-12-14 15:47:37,066 [Worker-6: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /pcmdSpring/src/main/resources
+2020-12-14 15:47:37,071 [Worker-6: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /pcmdSpring/src/main/resources
+2020-12-14 15:47:37,076 [Worker-6: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcmdSpring/src/test/java
+2020-12-14 15:47:38,931 [Worker-6: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 5 sec
+2020-12-14 15:47:41,085 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-12-14 15:47:41,090 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-12-14 15:47:41,106 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-12-14 15:47:41,113 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-12-14 15:47:41,113 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\devAvance\GitHub\DevWebAvance\pcmdSpring\src\test\resources
+2020-12-14 15:49:48,562 [Worker-8: Launching Executing install in C__devAvance_GitHub_DevWebAvance_pcmdSpring] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\devAvance\GitHub\DevWebAvance\pcmdSpring
+2020-12-14 15:49:48,566 [Worker-8: Launching Executing install in C__devAvance_GitHub_DevWebAvance_pcmdSpring] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B install -Dstyle.color=always
+2020-12-14 15:50:00,058 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-12-14 15:50:00,067 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-12-14 15:50:00,069 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-12-14 15:50:00,073 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-12-14 15:50:00,073 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\devAvance\GitHub\DevWebAvance\pcmdSpring\src\test\resources
