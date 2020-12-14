@@ -14,9 +14,6 @@ export class SideBarComponent implements OnInit {
   selectedMenu: String = '';
   isActiveMenu: boolean;
 
-  activeMenu() {
-    this.isActiveMenu = true;
-  }
   constructor(private router: ActivatedRoute) {
     let login = this.router.snapshot.paramMap.get('idLogin');
     this.loginUser = login;
