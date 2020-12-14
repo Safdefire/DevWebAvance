@@ -1,4 +1,5 @@
 package fr.imt.lgi2p.pcmd;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,11 +15,12 @@ public class Etudiant {
 	private String email;
 	private String niveauScolaire;
 	private String departement;
+
 	public Etudiant() {
 		super();
 	}
-	public Etudiant(String login, String nom, String prenom, String email, String niveauScolaire,
-			String departement) {
+
+	public Etudiant(String login, String nom, String prenom, String email, String niveauScolaire, String departement) {
 		super();
 		this.login = login;
 		this.nom = nom;
@@ -27,42 +29,55 @@ public class Etudiant {
 		this.niveauScolaire = niveauScolaire;
 		this.departement = departement;
 	}
+
 	public String getLogin() {
 		return login;
 	}
+
 	public void setLogin(String login) {
 		this.login = login;
 	}
+
 	public String getNom() {
 		return nom;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public String getPrenom() {
 		return prenom;
 	}
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getNiveauScolaire() {
 		return niveauScolaire;
 	}
+
 	public void setNiveauScolaire(String niveauScolaire) {
 		this.niveauScolaire = niveauScolaire;
 	}
+
 	public String getDepartement() {
 		return departement;
 	}
+
 	public void setDepartement(String departement) {
 		this.departement = departement;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -75,6 +90,7 @@ public class Etudiant {
 		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -116,10 +132,11 @@ public class Etudiant {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Etudiant [login=" + login + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email
 				+ ", niveauScolaire=" + niveauScolaire + ", departement=" + departement + "]";
 	}
-	
+
 }

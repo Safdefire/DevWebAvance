@@ -1,9 +1,10 @@
-<div class='sideBar floatLeft fixed'
->
+<div class='sideBar floatLeft fixed'>
 
-  <a class="active" [routerLink]='[{ outlets: { secondRouter: ["profile"] } }]' [state]= "{ statutUSER:statut_user, loginUSER:login_user}">Profile</a>
-  <a href="#Contact">Liste des mobilités</a>
-  <a href="#Apropost">Liste des Candidatures</a>
-  <a href={{buttonText}}>{{buttonText}}</a>
-  
+  <a routerLinkActive="active" [routerLink]='[{ outlets: { secondRouter: ["profile"] } }]'
+    [state]="{ statutUSER:statut_user, loginUSER:login_user}">Profile</a>
+  <a routerLinkActive="active" [routerLink]='[{ outlets: { secondRouter: ["listeMobilites"] } }]'
+    [state]="{ statutUSER:statut_user, loginUSER:login_user}">Liste des mobilités</a>
+  <a routerLinkActive="active" [routerLink]='[{ outlets: { secondRouter: ["listeCandidatures"] } }]'
+    [state]="{ statutUSER:statut_user, loginUSER:login_user}">Liste des candidatures</a>
+
 </div>

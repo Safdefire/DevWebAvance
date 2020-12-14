@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CompteComponent } from './compte/compte.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { ListeMobilitesComponent } from './liste-mobilites/liste-mobilites.component';
+import { ListeCandidaturesComponent } from './liste-candidatures/liste-candidatures.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     LoginComponent,
     routingComponents,
     CompteComponent,
-    SideBarComponent
+    SideBarComponent,
+    ListeMobilitesComponent,
+    ListeCandidaturesComponent
   ],
   imports: [
     HttpClientModule,

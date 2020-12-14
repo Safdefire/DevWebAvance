@@ -1,4 +1,5 @@
 package fr.imt.lgi2p.pcmd;
+
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -9,7 +10,7 @@ import javax.persistence.Id;
 @Entity
 public class Mobilite {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String universite;
@@ -20,9 +21,11 @@ public class Mobilite {
 	private int nombreDePlaces;
 	private String departement;
 	private String domaineDeFormation;
+
 	public Mobilite() {
 		super();
 	}
+
 	public Mobilite(Long id, String universite, String pays, Date dateDebut, Date dateFin, int nombreDeCandidatures,
 			int nombreDePlaces, String departement, String domaineDeFormation) {
 		super();
@@ -36,6 +39,7 @@ public class Mobilite {
 		this.departement = departement;
 		this.domaineDeFormation = domaineDeFormation;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -51,6 +55,7 @@ public class Mobilite {
 		result = prime * result + ((universite == null) ? 0 : universite.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -101,66 +106,84 @@ public class Mobilite {
 			return false;
 		return true;
 	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getUniversite() {
 		return universite;
 	}
+
 	public void setUniversite(String universite) {
 		this.universite = universite;
 	}
+
 	public String getPays() {
 		return pays;
 	}
+
 	public void setPays(String pays) {
 		this.pays = pays;
 	}
+
 	public Date getDateDebut() {
 		return dateDebut;
 	}
+
 	public void setDateDebut(Date dateDebut) {
 		this.dateDebut = dateDebut;
 	}
+
 	public Date getDateFin() {
 		return dateFin;
 	}
+
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
+
 	public int getNombreDeCandidatures() {
 		return nombreDeCandidatures;
 	}
+
 	public void setNombreDeCandidatures(int nombreDeCandidatures) {
 		this.nombreDeCandidatures = nombreDeCandidatures;
 	}
+
 	public int getNombreDePlaces() {
 		return nombreDePlaces;
 	}
+
 	public void setNombreDePlaces(int nombreDePlaces) {
 		this.nombreDePlaces = nombreDePlaces;
 	}
+
 	public String getDepartement() {
 		return departement;
 	}
+
 	public void setDepartement(String departement) {
 		this.departement = departement;
 	}
+
 	public String getDomaineDeFormation() {
 		return domaineDeFormation;
 	}
+
 	public void setDomaineDeFormation(String domaineDeFormation) {
 		this.domaineDeFormation = domaineDeFormation;
 	}
+
 	@Override
 	public String toString() {
 		return "Mobilite [id=" + id + ", universite=" + universite + ", pays=" + pays + ", dateDebut=" + dateDebut
 				+ ", dateFin=" + dateFin + ", nombreDeCandidatures=" + nombreDeCandidatures + ", nombreDePlaces="
 				+ nombreDePlaces + ", departement=" + departement + ", domaineDeFormation=" + domaineDeFormation + "]";
 	}
-	
-	
+
 }
