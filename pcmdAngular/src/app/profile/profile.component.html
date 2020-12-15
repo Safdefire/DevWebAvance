@@ -1,4 +1,26 @@
+<h1>{{etudiant.prenom}}{{etudiant.nom}}</h1>
+<p>Faites vos demandes de candidature ( 3 voeux possibles):</p>
 <div>
-    <h1>{{loginUser}}</h1>
+    <label for="listeMobilites">Voeu 1: </label>
+    <select name="menuDeroulantListeMobilites" id="listeMobilites" #selectedVoeu1>
+        <option value=null>--Sélectionnez une mobilité:--</option>
+        <option *ngFor="let mobilite of lesMobilites" [value]="mobilite.universite" id="mobilite.id">{{mobilite.universite}}</option>
+    </select>
+    <button (click)="ajouterVoeu1(selectedVoeu1.value)" class="btn btn-primary" type="submit"> Valider </button>
 </div>
-<p>{{statutUser}}</p>
+<div>
+    <label for="listeMobilites">Voeu 2: </label>
+    <select name="menuDeroulantListeMobilites" id="listeMobilites" #selectedVoeu2>
+        <option value=null>--Sélectionnez une mobilité:--</option>
+        <option *ngFor="let mobilite of lesMobilites" [value]="mobilite.universite" id="mobilite.id">{{mobilite.universite}}</option>
+    </select>
+    <button (click)="ajouterVoeu2(selectedVoeu2.value)" class="btn btn-primary" type="submit"> Valider </button>
+</div>
+<div>
+    <label for="listeMobilites">Voeu 3: </label>
+    <select name="menuDeroulantListeMobilites" id="listeMobilites" #selectedVoeu3>
+        <option value=null>--Sélectionnez une mobilité:--</option>
+        <option *ngFor="let mobilite of lesMobilites" [value]="mobilite.universite" id="mobilite.id">{{mobilite.universite}}</option>
+    </select>
+    <button (click)="ajouterVoeu3(selectedVoeu3.value)" class="btn btn-primary" type="submit"> Valider </button>
+</div>

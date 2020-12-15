@@ -27,10 +27,16 @@ public class CandidatureControleur {
 		return listeCandidatures;
 	}
 
-	@RequestMapping(value = "/candidature/{login}", method = RequestMethod.GET)
+	@RequestMapping(value = "/addCandidature/{login}", method = RequestMethod.GET)
 	public Candidature newCandidature(@PathVariable String login) {
 		Candidature candidature = new Candidature(login);
 		candidatureDao.newCandidature(candidature);
+		return candidature;
+	}
+	
+	@RequestMapping(value = "/candidature/{login}", method = RequestMethod.GET)
+	public Candidature getCandidature(@PathVariable String login) {
+		Candidature candidature = candidatureDao.findById(login);
 		return candidature;
 	}
 
