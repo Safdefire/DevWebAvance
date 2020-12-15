@@ -1,0 +1,22 @@
+#loginInterface {
+    width: 50%;
+    position: fixed;
+    top:25%;
+    left:25%;
+    padding: 5%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5%;
+}
+#loginInterface label, input{
+    display: inline-block;
+}
+input{
+    width: 360px;
+}
+label{
+    width: 150px;
+}
+.btn{
+    margin-top: 4%;
+    width: 100%;
+}
