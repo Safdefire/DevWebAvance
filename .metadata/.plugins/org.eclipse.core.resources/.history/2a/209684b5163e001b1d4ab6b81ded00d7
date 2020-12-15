@@ -1,0 +1,68 @@
+package fr.imt.lgi2p.pcmd;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
+public class Candidature {
+
+	
+	public Mobilite choixMobilite;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public String etudiantLogin;
+
+	public Candidature(Mobilite choixMobilite, Etudiant etudiant) {
+		super();
+		this.choixMobilite = choixMobilite;
+		this.etudiantLogin = etudiant.getLogin();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((choixMobilite == null) ? 0 : choixMobilite.hashCode());
+		result = prime * result + ((etudiantLogin == null) ? 0 : etudiantLogin.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Candidature other = (Candidature) obj;
+		if (choixMobilite == null) {
+			if (other.choixMobilite != null)
+				return false;
+		} else if (!choixMobilite.equals(other.choixMobilite))
+			return false;
+		if (etudiantLogin == null) {
+			if (other.etudiantLogin != null)
+				return false;
+		} else if (!etudiantLogin.equals(other.etudiantLogin))
+			return false;
+		return true;
+	}
+
+	public Mobilite getChoixMobilite() {
+		return choixMobilite;
+	}
+
+	public void setChoixMobilite(Mobilite choixMobilite) {
+		this.choixMobilite = choixMobilite;
+	}
+
+	public String getEtudiant() {
+		return etudiantLogin;
+	}
+
+	public void setEtudiant(String etudiantLogin) {
+		this.etudiantLogin = etudiantLogin;
+	}
+}

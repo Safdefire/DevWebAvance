@@ -1,0 +1,65 @@
+package fr.imt.lgi2p.pcmd;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
+public class Candidature {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public String etudiantLogin;
+	public String choixMobilite;
+	
+	
+	
+
+
+	public String getEtudiantLogin() {
+		return etudiantLogin;
+	}
+
+
+
+
+
+	public void setEtudiantLogin(String etudiantLogin) {
+		this.etudiantLogin = etudiantLogin;
+	}
+
+
+
+
+
+	public String getChoixMobilite() {
+		return choixMobilite;
+	}
+
+
+
+
+
+	public void setChoixMobilite(String choixMobilite) {
+		this.choixMobilite = choixMobilite;
+	}
+
+
+
+
+
+	public Candidature() {
+		super();
+	}
+
+
+
+
+
+	public Candidature(Mobilite choixMobilite, Etudiant etudiant) {
+		super();
+		this.choixMobilite = choixMobilite.getUniversite();
+		this.etudiantLogin = etudiant.getLogin();
+	}
+
+}
