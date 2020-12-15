@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Candidature } from '../liste-candidatures/liste-candidatures.component';
 export class User {
   id: number;
   login: string;
@@ -52,6 +53,7 @@ export class LoginComponent implements OnInit {
       return false;
     }
   }
+
   seConnecter(): void {
     this.user = new User(this.log, this.pass);
     const newUser:Observable<User> = this.http.post<User>('http://127.0.0.1:8080/connexion' 
@@ -62,6 +64,5 @@ export class LoginComponent implements OnInit {
       console.log(this.valideUser);
       console.log(this.isValide);
    });
-    
   }
 }

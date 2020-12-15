@@ -30,8 +30,10 @@ public class CandidatureControleur {
 	@RequestMapping(value = "/addCandidature/{login}", method = RequestMethod.GET)
 	public Candidature newCandidature(@PathVariable String login) {
 		Candidature candidature = new Candidature(login);
-		candidatureDao.newCandidature(candidature);
-		return candidature;
+		if (candidatureDao.findById(login) == null) {
+			candidatureDao.newCandidature(candidature);
+		}
+		return candidatureDao.findById(login);
 	}
 	
 	@RequestMapping(value = "/candidature/{login}", method = RequestMethod.GET)
