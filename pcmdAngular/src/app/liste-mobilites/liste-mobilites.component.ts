@@ -44,7 +44,7 @@ export class ListeMobilitesComponent implements OnInit {
     var c = 0;
     for (var candidature of this.lesCandidatures) {
       if ((candidature.voeu1 == univeriste) || (candidature.voeu2 == univeriste) || (candidature.voeu3 == univeriste)) {
-        c+=1;
+        c = c+1;
       }
     }
     return c;
