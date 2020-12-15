@@ -43,7 +43,7 @@ export class ListeMobilitesComponent implements OnInit {
   getCandidature(univeriste: String) {
     var c = 0;
     for (var candidature of this.lesCandidatures) {
-      if ((candidature.voeu1 == univeriste) || (candidature.voeu2 == univeriste) || (candidature.voeu3 == univeriste)) {
+      if ((candidature.voeu1 === univeriste) || (candidature.voeu2 === univeriste) || (candidature.voeu3 === univeriste)) {
         c = c+1;
       }
     }

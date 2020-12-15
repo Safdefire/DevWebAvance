@@ -66,11 +66,11 @@ export class ProfileComponent implements OnInit {
     return currentCandidature;
   }
 
-  getCandidaturesMobilite(id: number) {
+  getCandidaturesMobilite(univeriste: String) {
     var c = 0;
     for (var candidature of this.lesCandidatures) {
-      if ((candidature.voeu1 == id) || (candidature.voeu2 == id) || (candidature.voeu3 == id)) {
-        c += 1;
+      if ((candidature.voeu1 === univeriste) || (candidature.voeu2 === univeriste) || (candidature.voeu3 === univeriste)) {
+        c = c+1;
       }
     }
     return c;
