@@ -23,4 +23,24 @@ public class MobiliteControleur {
 	public List<Mobilite> listeMobilites() {
 		return mobiliteDao.listMobilite();
 	}
+	
+	@RequestMapping(value = "/mobilite/{id}", method = RequestMethod.GET)
+	public Mobilite getMobilite(@PathVariable Long id) {
+		Mobilite mobilite = mobiliteDao.findById(id);
+		return mobilite;
+	}
+	
+	@PostMapping(value = "/updateMobilite")
+	public Mobilite updateMobilite(@RequestBody String mobilite) {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			Mobilite newMobilite = mapper.readValue(mobilite, Mobilite.class);
+			mobiliteDao.updateMobilite(newMobilite);
+			return (newMobilite);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		return (null);
+	}
+	
 }

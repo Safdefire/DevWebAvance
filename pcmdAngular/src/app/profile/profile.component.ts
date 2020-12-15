@@ -2,16 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Etudiant } from '../Etudiant';
+import { Candidature } from '../liste-candidatures/liste-candidatures.component';
 import { Mobilite } from '../liste-mobilites/liste-mobilites.component';
 
-export class Candidature {
-  login: String;
-  voeu1: String;
-  voeu2: String;
-  voeu3: String;
-
-  constructor() { }
-}
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -24,8 +17,7 @@ export class ProfileComponent implements OnInit {
   lesMobilites = [];
   lesEtudiants = [];
   lesCandidatures = [];
-  candidature: Candidature;
-  
+
   ngOnInit(): void {
     //console.log(history.state);
     this.information = history.state;
@@ -42,12 +34,12 @@ export class ProfileComponent implements OnInit {
       this.lesMobilites = desMobilites;
       console.log(this.lesMobilites);
     });
-    const desEtudiants:Observable<[]> = this.http.get<[]>('http://127.0.0.1:8080/etudiants');
+    const desEtudiants: Observable<[]> = this.http.get<[]>('http://127.0.0.1:8080/etudiants');
     desEtudiants.subscribe(desEtudiants => {
       this.lesEtudiants = desEtudiants;
       console.log(this.lesEtudiants);
-    }); 
-    const desCandidatures:Observable<[]> = this.http.get<[]>('http://127.0.0.1:8080/candidatures');
+    });
+    const desCandidatures: Observable<[]> = this.http.get<[]>('http://127.0.0.1:8080/candidatures');
     desCandidatures.subscribe(desCandidatures => {
       this.lesCandidatures = desCandidatures;
       console.log(this.lesCandidatures);
@@ -74,6 +66,32 @@ export class ProfileComponent implements OnInit {
     return currentCandidature;
   }
 
+  getCandidaturesMobilite(id: number) {
+    var c = 0;
+    for (var candidature of this.lesCandidatures) {
+      if ((candidature.voeu1 == id) || (candidature.voeu2 == id) || (candidature.voeu3 == id)) {
+        c += 1;
+      }
+    }
+    return c;
+  }
+
+  updateMobilite() {
+    var c = 0;
+    var updatedMobilite;
+    for (var mobilite of this.lesMobilites) {
+      c = this.getCandidaturesMobilite(mobilite.id);
+      mobilite.nombreDeCandidatures = c;
+      const newMobilite: Observable<Mobilite> = this.http.post<Mobilite>('http://127.0.0.1:8080/updateMobilite'
+        , mobilite);
+      newMobilite.subscribe(newMobilite => {
+        mobilite = newMobilite;
+        console.log(mobilite);
+      });
+      c=0;
+    }
+  }
+
   ajouterVoeu1(value: String): void {
     var candidature = this.getCandidature(this.loginUser);
     candidature.voeu1 = value;
@@ -83,6 +101,7 @@ export class ProfileComponent implements OnInit {
       candidature = newCandidature;
       console.log(candidature);
     });
+    this.updateMobilite();
   }
 
   ajouterVoeu2(value: String): void {
@@ -94,6 +113,7 @@ export class ProfileComponent implements OnInit {
       candidature = newCandidature;
       console.log(candidature);
     });
+    this.updateMobilite();
   }
 
   ajouterVoeu3(value: String): void {
@@ -105,6 +125,7 @@ export class ProfileComponent implements OnInit {
       candidature = newCandidature;
       console.log(candidature);
     });
+    this.updateMobilite();
   }
 
 }
