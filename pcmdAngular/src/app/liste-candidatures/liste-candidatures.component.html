@@ -10,6 +10,12 @@
             </tr>
         </thead>
         <tbody>
+            <tr *ngFor="let candidature of lesCandidatures">
+                <td>{{getPrenomNom(candidature.login)}}</td>
+                <td>{{candidature.voeu1}}</td>
+                <td>{{candidature.voeu2}}</td>
+                <td>{{candidature.voeu3}}</td>
+            </tr>
         </tbody>
     </table>
 </div>

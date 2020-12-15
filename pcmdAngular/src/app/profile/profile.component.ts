@@ -22,25 +22,10 @@ export class ProfileComponent implements OnInit {
   loginUser: string = "";
   statutUser: string = "";
   lesMobilites = [];
-  etudiant: Etudiant;
+  lesEtudiants = [];
+  lesCandidatures = [];
   candidature: Candidature;
   
-  private etudiantUrl = 'http://127.0.0.1:8080/etudiant';
-
-  constructor(private http: HttpClient) {
-    const desMobilites: Observable<[]> = this.http.get<[]>('http://127.0.0.1:8080/mobilites/');
-    desMobilites.subscribe(desMobilites => {
-      this.lesMobilites = desMobilites;
-      console.log(this.lesMobilites);
-    });
-    const url = `${this.etudiantUrl}/${this.loginUser}`;
-    const etudiant: Observable<Etudiant> = this.http.get<Etudiant>(url);
-    etudiant.subscribe(etudiant => {
-      this.etudiant = etudiant;
-      console.log(this.etudiant);
-    });
-  }
-
   ngOnInit(): void {
     //console.log(history.state);
     this.information = history.state;
@@ -49,57 +34,76 @@ export class ProfileComponent implements OnInit {
     console.log(this.loginUser);
     this.statutUser = history.state.statutUSER;
     console.log(this.statutUser);
-    this.candidature = new Candidature();
   }
 
-  private candidatureUrl = 'http://127.0.0.1:8080/candidature';
+  constructor(private http: HttpClient) {
+    const desMobilites: Observable<[]> = this.http.get<[]>('http://127.0.0.1:8080/mobilites/');
+    desMobilites.subscribe(desMobilites => {
+      this.lesMobilites = desMobilites;
+      console.log(this.lesMobilites);
+    });
+    const desEtudiants:Observable<[]> = this.http.get<[]>('http://127.0.0.1:8080/etudiants');
+    desEtudiants.subscribe(desEtudiants => {
+      this.lesEtudiants = desEtudiants;
+      console.log(this.lesEtudiants);
+    }); 
+    const desCandidatures:Observable<[]> = this.http.get<[]>('http://127.0.0.1:8080/candidatures');
+    desCandidatures.subscribe(desCandidatures => {
+      this.lesCandidatures = desCandidatures;
+      console.log(this.lesCandidatures);
+    });
+  }
 
+  getPrenomNom(login: String) {
+    var prenomNom = '';
+    for (var etudiant of this.lesEtudiants) {
+      if (etudiant.login == login) {
+        prenomNom = etudiant.prenom + ' ' + etudiant.nom;
+      }
+    }
+    return prenomNom;
+  }
+
+  getCandidature(login: String) {
+    var currentCandidature;
+    for (var candidature of this.lesCandidatures) {
+      if (candidature.login == login) {
+        currentCandidature = candidature;
+      }
+    }
+    return currentCandidature;
+  }
 
   ajouterVoeu1(value: String): void {
-    // On récupère la candidature    
-    const url = `${this.candidatureUrl}/${this.loginUser}`;
-    const candidature: Observable<Candidature> = this.http.get<Candidature>(url);
-    candidature.subscribe(candidature => {
-      this.candidature = candidature;
-    });
-    this.candidature.voeu1 = value;
+    var candidature = this.getCandidature(this.loginUser);
+    candidature.voeu1 = value;
     const newCandidature: Observable<Candidature> = this.http.post<Candidature>('http://127.0.0.1:8080/updateCandidature'
-      , this.candidature);
+      , candidature);
     newCandidature.subscribe(newCandidature => {
-      this.candidature = newCandidature;
-      console.log(this.candidature);
+      candidature = newCandidature;
+      console.log(candidature);
     });
   }
 
   ajouterVoeu2(value: String): void {
-    // On récupère la candidature    
-    const url = `${this.candidatureUrl}/${this.loginUser}`;
-    const candidature: Observable<Candidature> = this.http.get<Candidature>(url);
-    candidature.subscribe(candidature => {
-      this.candidature = candidature;
-    });
-    this.candidature.voeu2 = value;
+    var candidature = this.getCandidature(this.loginUser);
+    candidature.voeu2 = value;
     const newCandidature: Observable<Candidature> = this.http.post<Candidature>('http://127.0.0.1:8080/updateCandidature'
-      , this.candidature);
+      , candidature);
     newCandidature.subscribe(newCandidature => {
-      this.candidature = newCandidature;
-      console.log(this.candidature);
+      candidature = newCandidature;
+      console.log(candidature);
     });
   }
 
   ajouterVoeu3(value: String): void {
-    // On récupère la candidature    
-    const url = `${this.candidatureUrl}/${this.loginUser}`;
-    const candidature: Observable<Candidature> = this.http.get<Candidature>(url);
-    candidature.subscribe(candidature => {
-      this.candidature = candidature;
-    });
-    this.candidature.voeu3 = value;
+    var candidature = this.getCandidature(this.loginUser);
+    candidature.voeu3 = value;
     const newCandidature: Observable<Candidature> = this.http.post<Candidature>('http://127.0.0.1:8080/updateCandidature'
-      , this.candidature);
+      , candidature);
     newCandidature.subscribe(newCandidature => {
-      this.candidature = newCandidature;
-      console.log(this.candidature);
+      candidature = newCandidature;
+      console.log(candidature);
     });
   }
 
