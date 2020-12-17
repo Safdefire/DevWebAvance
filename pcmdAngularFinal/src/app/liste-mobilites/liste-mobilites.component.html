@@ -1,0 +1,31 @@
+<div id="listeMobilitesInterface">
+<div id="title">
+    <h1>{{title}}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Université</th>
+                <th>Pays</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Places</th>
+                <th>Candidatures</th>
+                <th>Départements</th>
+                <th>Formation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let mobilites of lesMobilites">
+                <td>{{mobilites.universite}}</td>
+                <td>{{mobilites.pays}}</td>
+                <td>{{mobilites.dateDebut | date:'shortDate' }}</td>
+                <td>{{mobilites.dateFin | date:'shortDate' }}</td>
+                <td>{{mobilites.nombreDePlaces}}</td>
+                <td>{{mobilites.nombreDeCandidatures}}</td>
+                <td>{{mobilites.departement}}</td>
+                <td>{{mobilites.domaineDeFormation}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

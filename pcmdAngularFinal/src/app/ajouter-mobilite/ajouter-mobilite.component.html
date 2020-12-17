@@ -1,0 +1,42 @@
+<div id="ajouterMobiliteContainer">
+  <div class="alert alert-success" role="alert" style="visibility: hidden;" id="alertMessage" >
+    Mobilité ajoutée avec succès !
+  </div>
+  <div class="container-fluid " id="ajouterMobiliteInterface"> 
+    
+      <form #userForm="ngForm" ngNativeValidate>
+        <div class=form-group>
+          <label>Universite :</label>
+          <input type="text" class="form-control" name="universite" [(ngModel)] = "universite" required>
+        </div>
+        <div class=form-group>
+          <label>Pays :</label>
+          <input type="text" class="form-control" name="pays" [(ngModel)] = "pays" required>
+        </div>
+        <div class=form-group>
+          <label>Date de début :</label>
+          <input type="datetime-local" class="form-control" name="dateDebut" [(ngModel)] = "dateDebut"  min="2020-06-07T00:00" max="2021-06-14T00:00" required>
+        </div>
+        <div class=form-group>
+          <label>Date de fin :</label>
+          <input type="datetime-local" class="form-control" name="dateFin" [(ngModel)] = "dateFin" min="2020-06-07T00:00" max="2021-06-14T00:00" required>
+        </div>
+        <div class=form-group>
+          <label>Le nombre de places disponibles :</label>
+          <input type="number" class="form-control" name="nombrePlaces" [(ngModel)] = "nombrePlaces" required min="1" title="Veuillez renseigner un nombre">
+        </div>
+        <div class=form-group>
+          <label>Département :</label>
+          <input type="text" class="form-control" name="departement" [(ngModel)] = "departement" required>
+        </div>
+        <div class=form-group>
+          <label>Le domaine de formation :</label>
+          <input type="text" class="form-control" name="domaineFormation" [(ngModel)] = "domaineFormation" required>
+        </div>
+        <button (click)="ajouterMobilite()" class="btn btn-primary" type="submit"> Ajouter </button>
+      </form>
+      
+    </div>
+  
+  </div>
+    

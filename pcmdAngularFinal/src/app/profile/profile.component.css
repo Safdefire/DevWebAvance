@@ -1,0 +1,26 @@
+h1 {
+    text-align: center;
+}
+select{
+    margin-right: 10%;
+}
+.infoChoix {
+    margin-top: 10%;
+    width:70%; 
+    margin-left:15%; 
+    margin-right:15%;
+}
+label{
+    margin-right: 3%;
+}
+p{
+    margin-top: 5%;
+}
+#choixVoeuxInterface{
+    background-color: rgba(255, 255, 255, 0.8);
+    padding-left: 10%;
+    margin-left: -2.9%;
+    width: 103%;
+    height: 100vh;
+    overflow: auto;
+}

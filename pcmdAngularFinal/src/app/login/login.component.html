@@ -1,0 +1,22 @@
+
+  <div class="alert alert-danger" role="alert" style="visibility: hidden;" id="alertMessage" >
+    Login and/or password is not valid
+  </div>
+<div class="container-fluid " id="loginInterface"> 
+    <form #userForm="ngForm" ngNativeValidate>
+      <div class=form-group>
+        <label>Login :</label>
+        <input type="text" class="form-control" name="login" [(ngModel)] = "log" id="loginIput" required>
+      </div>
+      <div class=form-group>
+        <label>Mot de passe :</label>
+        <input type="password" class="form-control" name="password" [(ngModel)] = "pass" id="passwordInput" required>
+      </div>
+  
+      <button (click)="seConnecter()" class="btn btn-primary " type="submit"> Se connecter </button>
+    
+    </form>
+    
+  </div>
+  
+  
